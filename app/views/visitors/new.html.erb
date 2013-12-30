@@ -1,1 +1,22 @@
-<h3>Home</h3>
+<div class="container-fluid">
+      <div class="content">
+        <div class='cleaner'></div>
+        <table class='zebra-striped' id='main-items'>
+            <thead>
+                <tr>
+                    <th class='span2'></th>
+                    <th class='span4'>Car</th>
+                    <th class='span2'>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @products.each do |product| %>
+                <tr>
+                    <td class='mini-thumbnail'><img src=<%=product.image_file%>/></td>
+                    <td><%=product.name%></td>
+                    <td>$<%=product.price%></td>
+                    <td><%= link_to "Buy Now", "#", :class => "btn btn-mini", :type => "button" %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>

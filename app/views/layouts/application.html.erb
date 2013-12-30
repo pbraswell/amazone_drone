@@ -14,7 +14,19 @@
     </header>
     <main role="main">
        <%= render 'layouts/messages' %>
-       <%= yield %>
+       <div class="sidebar">
+        <div class="span4">
+          <div class="page-header">
+             <h3>Amazone Drone <small>shopping cart</small></h3>
+          </div>
+        </div>
+       </div>
+       <div class="span6">
+         <%= yield %>
+       </div>
     </main>
+    <footer>
+          <p>&copy; SUDO Labs 2013 <a href='http://www.peterbraswell.com' target='_blank' title='Professional Web Developer'>Peter Braswell</a></p>
+    </footer>
   </body>
 </html>

@@ -43,3 +43,11 @@ section {
   @extend .row;
   margin-top: 20px;
   }
+td.mini-thumbnail img{
+  max-height:50px;
+  max-width:100px;
+}
+  td.mini-thumbnail{
+  text-align:center;
+}
+
