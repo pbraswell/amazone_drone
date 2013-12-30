@@ -11,7 +11,6 @@ gem 'bootstrap-sass', '>= 3.0.0.0'
 gem 'figaro'
 gem 'high_voltage'
 gem 'simple_form'
-gem 'seedbank'
 
 group :development do
   gem 'better_errors'
@@ -22,6 +21,7 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
   gem 'annotate'
+  gem 'seedbank'
 end
 
 group :development, :test do
