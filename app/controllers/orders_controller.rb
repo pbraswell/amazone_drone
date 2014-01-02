@@ -6,7 +6,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-  	puts params
   	product = Product.find params[:product_id]
   	@order = Order.create :product => product
   	@order.product = product

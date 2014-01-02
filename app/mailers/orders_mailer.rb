@@ -5,7 +5,7 @@ class OrdersMailer < ActionMailer::Base
   	@order = order
   	@product = order.product
   	# [fix] - Add this as an environmental variable in Figaro
-    mail(to: "peter.braswell@gmail.com", subject: 'Drone Mission')
+    mail(to: ENV["DRONE_OPERATOR_EMAIL"], subject: 'Drone Mission')
   end
 
 end
