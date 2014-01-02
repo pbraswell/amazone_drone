@@ -3,10 +3,10 @@
 	<table class='zebra-striped'>
 	    <thead>
 	        <tr>
-	            <th class='span3'>Quantity</th>
-	            <th class='span3'>Image</th>
+	            <th class='span4'>Quantity</th>
+	            <th class='span4'>Image</th>
 	            <th class='span4'>Item</th>
-	            <th class='span2'>Price</th>
+	            <th class='span4'>Price</th>
 	        </tr>
 	    </thead>
 	    <tbody>
@@ -20,6 +20,7 @@
 	    </tbody>
 	</table>
 </div>
+</br>
 <%= simple_form_for @order, 
   :url => url_for(:action => 'create', :controller => 'orders'),
   :method => 'post' do |f| %>
@@ -28,5 +29,11 @@
   <%= f.input :product_id, :as => :hidden, :input_html => { :value => @product.id } %>
   <%= f.button :submit, 'Purchase now', :class => 'btn-primary', :id => "lz-button" %> 
 <% end %> 
+<div id="thank-you">
+	<h3>Thank you for your order!</h3>
+	<p>A mission file has been generated and is being sent to one of our delivery
+		drones right now!
+	</p>
+</div>
 
 

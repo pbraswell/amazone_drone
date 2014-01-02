@@ -11,7 +11,8 @@ gem 'bootstrap-sass', '>= 3.0.0.0'
 gem 'figaro'
 gem 'high_voltage'
 gem 'simple_form'
-gem 'paloma', '>= 3.0'
+# gem 'paloma', '>= 3.0'
+gem 'seedbank'
 
 group :development do
   gem 'better_errors'
@@ -22,10 +23,10 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
   gem 'annotate'
-  gem 'seedbank'
 end
 
 group :development, :test do
+  gem 'rspec-rails', '2.99.0.beta1'
   gem 'pry-rails'
   gem 'sqlite3'
   gem 'growl'
@@ -35,8 +36,6 @@ group :development, :test do
   gem 'guard-cucumber'
   gem 'guard-brakeman'
   gem 'factory_girl_rails'
-  gem 'rspec-rails'
-  gem 'rspec-expectations'
   gem 'brakeman'
   gem 'database_cleaner', '1.0.1'
   gem 'email_spec'

@@ -19,5 +19,5 @@ describe Order do
     it "should have an association to a product" do
     	order.should respond_to :product
     end
-  end
+  end 
 end
