@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe OrdersController do
   let(:product) {FactoryGirl.create :product}
+  let(:longitude) {-77.71055472573725}
+  let(:latitude) {37.389555540640075}
   let(:valid_session) { {} }
 
   describe "with valid params" do
@@ -15,6 +17,22 @@ describe OrdersController do
       post :create, {:product_id => product.id, :format => 'json'}, valid_session
       expect(assigns(:order)).to be_a(Order)
       expect(assigns(:order)).to be_persisted
+    end
+  end
+
+  describe "generating a drone mission" do 
+    it "should send out an email on successfull order creation" do
+      mailer = mock
+      mailer.should_receive(:deliver)
+      OrdersMailer.should_receive(:mission_email).and_return(mailer)
+      post :create, {:product_id => product.id,
+                     :longitude => longitude,
+                     :latitude => latitude,
+                      :format => 'json'}, valid_session
+    end
+
+    it "should have a drone mission file attached to the email" do 
+      pending
     end
 
   end

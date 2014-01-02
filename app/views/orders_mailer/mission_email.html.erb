@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Drone Mission for, <%= @order.name %></h1>
+    <h3>
+      Mission Details
+    </h3>
+    <p>
+      Product: <%=@product.name%>
+    </p>
+    <p>
+      Longitude: <%=@order.delivery_details.longitude%></br>
+      Latitude: <%=@order.delivery_details.latitude%></br>
+    </p>
+  </body>
+</html>

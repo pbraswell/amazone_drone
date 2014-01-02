@@ -11,5 +11,7 @@
 
 FactoryGirl.define do
   factory :order do
+  	association :delivery_details, factory: :delivery_details
+  	product
   end
 end

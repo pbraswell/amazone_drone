@@ -14,10 +14,9 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :delivery_detail, :class => 'DeliveryDetails' do
-    name "MyString"
-    latitude 1.5
-    longitude 1.5
-    order_id 1
+  factory :delivery_details do
+    name "Joe Customer"
+    latitude 37.389555540640075
+    longitude -77.71055472573725
   end
 end

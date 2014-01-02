@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
   	@order.delivery_details = DeliveryDetails.create :name => params[:name],
   	 :longitude => params[:longitude], :latitude => params[:latitude]
     if @order.save!
+      OrdersMailer.mission_email(@order).deliver()
       respond_to do |format|
       	format.xml {render :xml => @order}
       	format.json {render :json => @order}
