@@ -49,5 +49,10 @@ td.mini-thumbnail img{
 }
   td.mini-thumbnail{
   text-align:center;
+  float: left;
 }
-
+html, body, #map-canvas {
+  height: 100%;
+  margin: 0px;
+  padding: 0px
+}

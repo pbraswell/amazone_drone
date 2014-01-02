@@ -6,6 +6,7 @@
 #  name       :string(255)
 #  price      :integer
 #  image_file :string(255)
+#  order_id   :integer
 #  created_at :datetime
 #  updated_at :datetime
 #

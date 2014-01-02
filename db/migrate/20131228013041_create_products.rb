@@ -4,6 +4,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :name
       t.integer :price
       t.string :image_file
+      t.belongs_to :order
       t.timestamps
     end
   end

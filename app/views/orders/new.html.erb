@@ -1,0 +1,32 @@
+<h3>Your order details</h3>
+<div class="order">
+	<table class='zebra-striped'>
+	    <thead>
+	        <tr>
+	            <th class='span3'>Quantity</th>
+	            <th class='span3'>Image</th>
+	            <th class='span4'>Item</th>
+	            <th class='span2'>Price</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr>
+	           
+	            <td>1</td>
+	            <td class='mini-thumbnail'><img src=<%=@product.image_file%>/></td>
+	            <td><%=@product.name%></td>
+	            <td>$<%=@product.price%></td>
+	        </tr>
+	    </tbody>
+	</table>
+</div>
+<%= simple_form_for @order, 
+  :url => url_for(:action => 'create', :controller => 'orders'),
+  :method => 'post' do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name, :required => true %>
+  <%= f.input :product_id, :as => :hidden, :input_html => { :value => @product.id } %>
+  <%= f.button :submit, 'Purchase now', :class => 'btn-primary', :id => "lz-button" %> 
+<% end %> 
+
+
