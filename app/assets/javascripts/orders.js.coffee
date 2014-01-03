@@ -24,7 +24,9 @@ jQuery ->
     landing_zone_map = (position) ->
         handler = Gmaps.build('Google')
         handler.buildMap
-          provider: {}
+          provider: {
+            mapTypeId: google.maps.MapTypeId.HYBRID
+          }
           internal:
             id: "map"
         , ->
