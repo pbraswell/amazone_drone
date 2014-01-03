@@ -51,11 +51,6 @@ td.mini-thumbnail{
   text-align:center;
   float: left;
 }
-html, body, #map-canvas {
-  height: 100%;
-  margin: 0px;
-  padding: 0px
-}
 td.table-row {
   padding: 10px;
   padding-right: 5px;
@@ -64,4 +59,11 @@ td.table-row {
 th.table-header {
   padding: 10px;
   padding-right: 5px;
+}
+map-canvas{
+  width: 800px;
+}
+#map{
+  width: 800px;
+  height: 400px;
 }

@@ -13,6 +13,7 @@ gem 'high_voltage'
 gem 'simple_form'
 # gem 'paloma', '>= 3.0'
 gem 'seedbank'
+gem 'gmaps4rails'
 
 group :development do
   gem 'better_errors'

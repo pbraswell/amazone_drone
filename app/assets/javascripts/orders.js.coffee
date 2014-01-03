@@ -6,7 +6,6 @@ jQuery ->
     ## Page initialization
     $("#new_order").submit (event) ->
     	event.preventDefault()
-
     	if navigator.geolocation
     		navigator.geolocation.getCurrentPosition ((position) ->
             # alert('found lat and long! : ' + position.coords.latitude + '-' + position.coords.longitude )
@@ -14,13 +13,33 @@ jQuery ->
             order_submission position
             ),
             ->
-            	alert('something went wrong getting your location')
+            	alert('something went wrong getting your location.  Please try reloading the page and resubmitting your request')
             ,
             {enableHighAccuracy: true}
     	else
     	  alert('your browser does not support HTML5 Geolocation!')
 
     $('#thank-you').hide()
+
+    landing_zone_map = (position) ->
+        handler = Gmaps.build('Google')
+        handler.buildMap
+          provider: {}
+          internal:
+            id: "map"
+        , ->
+          markers = handler.addMarkers([
+            lat: position.coords.latitude
+            lng: position.coords.longitude
+            picture:
+                url: "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png"
+                width: 56
+                height: 56
+
+            infowindow: "Landing Zone"
+          ])
+          handler.bounds.extendWith markers
+          handler.fitMapToBounds()
 
     ## Page functions
     order_submission = (position) ->
@@ -32,5 +51,5 @@ jQuery ->
           success: (data, textStatus, xhr) ->
             console.log "Request result :" + textStatus
             console.log "Data :" + data
-            $('#lz-button').addClass('disabled')
+            landing_zone_map position
             $('#thank-you').show()
