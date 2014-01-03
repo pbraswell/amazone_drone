@@ -9,7 +9,8 @@ jQuery ->
 
     	if navigator.geolocation
     		navigator.geolocation.getCurrentPosition ((position) ->
-            alert('found lat and long! : ' + position.coords.latitude + '-' + position.coords.longitude )
+            # alert('found lat and long! : ' + position.coords.latitude + '-' + position.coords.longitude )
+            $('#lz-button').addClass('disabled')
             order_submission position
             ),
             ->
