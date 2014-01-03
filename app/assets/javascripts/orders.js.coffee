@@ -25,7 +25,7 @@ jQuery ->
     order_submission = (position) ->
     	$.ajax
           type: "POST"
-          url: "/orders?product_id=#{$('#order_product_id').attr('value')}&longitude=#{position.coords.longitude}&latitude=#{position.coords.latitude}"
+          url: "/orders?name=#{$('#order_name').val()}&product_id=#{$('#order_product_id').attr('value')}&longitude=#{position.coords.longitude}&latitude=#{position.coords.latitude}"
           contentType: "application/json; charset=utf-8"
           dataType: "json"
           success: (data, textStatus, xhr) ->
