@@ -47,7 +47,7 @@ td.mini-thumbnail img{
   max-height:50px;
   max-width:100px;
 }
-  td.mini-thumbnail{
+td.mini-thumbnail{
   text-align:center;
   float: left;
 }
@@ -55,4 +55,13 @@ html, body, #map-canvas {
   height: 100%;
   margin: 0px;
   padding: 0px
+}
+td.table-row {
+  padding: 10px;
+  padding-right: 5px;
+  text-align: center;
+}
+th.table-header {
+  padding: 10px;
+  padding-right: 5px;
 }
