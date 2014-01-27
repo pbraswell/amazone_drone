@@ -15,7 +15,7 @@
                     <td class='mini-thumbnail'><img src=<%=product.image_file%>/></td>
                     <td><%=product.name%></td>
                     <td>$<%=product.price%></td>
-                    <td><%= link_to "Buy Now", new_order_path(:product_id => product.id), :class => "btn btn-mini", :type => "button" %></td>
+                    <td><%= link_to "Buy Now", new_order_path(:product_id => product.id), :id => 'product', :class => "btn btn-mini", :type => "button" %></td>
                 </tr>
                 <% end %>
             </tbody>

@@ -6,7 +6,8 @@ class OrdersController < ApplicationController
   end
 
   def create
-  	product = Product.find params[:product_id]
+    session[:return_to] ||= request.referer
+  	product = Product.find params[:order][:product_id]
   	@order = Order.create :product => product
   	@order.product = product
   	@order.delivery_details = DeliveryDetails.create :name => params[:name],
@@ -16,6 +17,7 @@ class OrdersController < ApplicationController
       respond_to do |format|
       	format.xml {render :xml => @order}
       	format.json {render :json => @order}
+        format.html {redirect_to session[:return_to] ||= request.referer, :notice => "Network created."}
       end
 	else
 	end	
