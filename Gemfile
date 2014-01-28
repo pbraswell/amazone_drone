@@ -29,7 +29,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '2.99.0.beta1'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', :require => false
   gem 'pry-rails'
   gem 'sqlite3'
   gem 'growl'
