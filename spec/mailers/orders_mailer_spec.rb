@@ -21,5 +21,10 @@ describe OrdersMailer do
   it "should contain the product order information " do
   	@email.to_s.include? "Product: #{"1969 Corvette"}"
   end
+ 
+  it "should create an attachment for the drone mission file" do
+    file_path = File.join "#{Rails.root}", "tmp", "mission_file_#{order.id}.txt"
+    File.exists?(file_path).should be_true
+  end
 
 end

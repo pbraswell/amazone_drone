@@ -7,20 +7,12 @@ class OrdersController < ApplicationController
 
   def create
     session[:return_to] ||= request.referer
-  	product = Product.find params[:order][:product_id]
-  	@order = Order.create :product => product
-  	@order.product = product
-  	@order.delivery_details = DeliveryDetails.create :name => params[:name],
-  	 :longitude => params[:longitude], :latitude => params[:latitude]
-    if @order.save!
-      OrdersMailer.mission_email(@order).deliver()
-      respond_to do |format|
-      	format.xml {render :xml => @order}
-      	format.json {render :json => @order}
-        format.html {redirect_to session[:return_to] ||= request.referer, :notice => "Network created."}
-      end
-	else
-	end	
+    @order = Order.process_order params 
+    respond_to do |format|
+    	format.xml {render :xml => @order}
+    	format.json {render :json => @order}
+      format.html {redirect_to session[:return_to] ||= request.referer, :notice => "Network created."}
+    end
   end
 
   def update

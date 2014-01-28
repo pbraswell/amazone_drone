@@ -11,14 +11,14 @@ describe OrdersController do
     it "creates a new order" do
       expect {
         post :create, {:name => name, 
-                       :product_id => product.id, 
+                       :order => {:product_id => product.id}, 
                        :format => 'json'}, valid_session
       }.to change(Order, :count).by(1)
     end
 
     it "assigns a newly created order as @order" do
       post :create, {:name => name, 
-                     :product_id => product.id, 
+                     :order => {:product_id => product.id}, 
                      :format => 'json'}, valid_session
       expect(assigns(:order)).to be_a(Order)
       expect(assigns(:order)).to be_persisted
@@ -31,7 +31,7 @@ describe OrdersController do
       mailer.should_receive(:deliver)
       OrdersMailer.should_receive(:mission_email).and_return(mailer)
       post :create, {:name => name,
-                     :product_id => product.id,
+                     :order => {:product_id => product.id},
                      :longitude => longitude,
                      :latitude => latitude,
                      :format => 'json'}, valid_session
